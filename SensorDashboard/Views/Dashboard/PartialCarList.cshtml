@@ -1,0 +1,51 @@
+﻿@using SensorDashboard.Models
+
+@model List<Device>
+
+@{
+    ViewBag.Title = "PartialCarList";
+}
+
+
+@foreach (var device in Model)
+{
+    <div class="row">
+        <div data-id="@device.Serial" class="device">@device.Title</div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+       
+
+        $(".device").on('click', function () {
+            clearInterval(interval);
+            let data;
+
+            if ($("#formFilterDate").find("input[name='between']").val().length > 0 && $("#formFilterDate").find("input[name='to']").val().length) {
+
+                //console.log($("#datetimepicker1").datetimepicker("viewDate").unix());
+                //console.log($("#formFilterDate").find("input[name='between']").val())
+
+                data = {
+                    "filter.ValueIdContains": $(this).attr("data-id"),
+                    "filter.DateTimeBegin": $("#datetimepicker1").datetimepicker("viewDate").unix(),
+                    "filter.DateTimeFinish": $("#datetimepicker2").datetimepicker("viewDate").unix()
+                }
+            }
+            else {
+                data = {
+                    "filter.ValueIdContains": $(this).attr("data-id")
+                };
+            }
+
+            idCar = $(this).attr("data-id");
+
+            getDataForDeviceWithFilter(data);
+        });
+    });
+</script>
+
+
+
