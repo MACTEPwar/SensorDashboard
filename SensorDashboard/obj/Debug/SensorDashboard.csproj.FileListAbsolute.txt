@@ -77,10 +77,15 @@ C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\ru\System.
 C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\ru\System.Web.WebPages.Deployment.resources.dll
 C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\ru\System.Web.WebPages.Razor.resources.dll
 C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\obj\Debug\SensorDashboard.csprojAssemblyReference.cache
-C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\obj\Debug\SensorDashboard.csproj.CoreCompileInputs.cache
 C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\obj\Debug\SensorDashboard.csproj.CopyComplete
 C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\obj\Debug\SensorDashboard.dll
 C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\obj\Debug\SensorDashboard.pdb
 C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\ClickHouse.Ado.dll
 C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\LZ4.dll
 C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\ClickHouse.Ado.xml
+C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\System.Net.Http.Formatting.dll
+C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\System.Web.Http.dll
+C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\System.Web.Http.WebHost.dll
+C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\System.Net.Http.Formatting.xml
+C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\System.Web.Http.xml
+C:\Users\v.shebanits\source\repos\SensorDashboard\SensorDashboard\bin\System.Web.Http.WebHost.xml

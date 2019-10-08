@@ -60,6 +60,7 @@ namespace SensorDashboard
                     
                 } while (reader.NextResult());
                 reader.Close();
+                connection.Close();
             }
 
             return result;
