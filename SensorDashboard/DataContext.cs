@@ -11,14 +11,15 @@ namespace SensorDashboard
     public class DataContext
     {
         static string connectionString = WebConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        private static ClickHouseConnection connection;
-        public static void Init()
-        {
-            connection = new ClickHouseConnection(connectionString);
-        }
+        //private static ClickHouseConnection connection;
+        //public static void Init()
+        //{
+        //    connection = new ClickHouseConnection(connectionString);
+        //}
 
         public static List<List<ObjectCell>> Query(string sql)
         {
+            ClickHouseConnection connection = new ClickHouseConnection(connectionString);
             ClickHouseCommand command = new ClickHouseCommand();
             command.Connection = connection;
             command.CommandType = System.Data.CommandType.Text;
@@ -28,6 +29,7 @@ namespace SensorDashboard
 
             using (connection)
             {
+                //if (connection.State == System.Data.ConnectionState.Open) connection.Close();
                 connection.Open();
                 ClickHouseDataReader reader = command.ExecuteReader() as ClickHouseDataReader;
 
@@ -59,8 +61,10 @@ namespace SensorDashboard
 
                     
                 } while (reader.NextResult());
+                command.Dispose();
                 reader.Close();
                 connection.Close();
+                connection.Dispose();
             }
 
             return result;

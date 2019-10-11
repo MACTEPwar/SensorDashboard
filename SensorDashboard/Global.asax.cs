@@ -19,7 +19,7 @@ namespace SensorDashboard
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             
-            DataContext.Init();
+            //DataContext.Init();
 
         }
     }
