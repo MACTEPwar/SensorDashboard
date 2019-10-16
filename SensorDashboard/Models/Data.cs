@@ -7,8 +7,8 @@ namespace SensorDashboard.Models
 {
     public class Data
     {
-        public int datetime { get; set; }
+        public int? datetime { get; set; }
         public string valueid { get; set; }
-        public string[] value { get; set; }
+        public object value { get; set; }
     }
 }

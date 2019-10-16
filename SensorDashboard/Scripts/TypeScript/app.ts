@@ -30,14 +30,13 @@ window.onload = () => {
 
     /** TEST */
 
-    let cs: ChartService = new ChartService();
-    let ch: Chart = new Chart(document.getElementById('regions_div'));
-    ch.headers = ['Second', 'Sales', 'Куку'];
-    ch.chartType = ChartType.LineChart;
-    ch.data = [['1570718585', 1000, 400], ['1570718587', 1170, 460], ['1570718586', 660, 1120], ['1570718589', 1030, 540]];
-    //ch.options = {}
-    //console.log("draw");
-    ch.draw();
+    //let cs: ChartService = new ChartService();
+    //let ch: Chart = new Chart(document.getElementById('regions_div'));
+    //ch.headers = ['Second', 'Sales', 'Куку'];
+    //ch.chartType = ChartType.LineChart;
+    //ch.data = [['1570718585', 1000, 400], ['1570718587', 1170, 460], ['1570718586', 660, 1120], ['1570718589', 1030, 540]];
+    ////ch.options = {}
+    //ch.draw();
 
     /** END TEST */
 

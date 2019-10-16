@@ -1,5 +1,10 @@
 ﻿import { Device,Data, DataSort, Point, DataValue } from "../Models/Device.js";
 import { FilterDataDevice } from "../Models/Filters/FilterDataDevice.js"
+
+import { ChartService } from "../Services/ChartService.js";
+import { Chart, ChartType } from "../Models/Chart.js";
+
+/// <reference path="../../../node_modules/moment/moment.d.ts"/>
 //import * as $ from "jquery";
 /// <reference path="../../../node_modules/@types/jquery/index.d.ts"/>
 
@@ -57,13 +62,14 @@ export class DeviceService {
                 async: false,
                 url: "/Dashboard/GetDataForDeviceWithFilter",
                 data: {
-                    "filter.ValueIdContains": filter.Serial,
+                    "filter.ValueIdContains": `${filter.Serial}.temperature.28-00000ab161fc`,
                     "filter.DateTimeBegin": filter.DateTimeBegin,
                     "filter.DateTimeFinish": filter.DateTimeFinish
 
                 },
                 type: "GET",
                 success: function (response) {
+                    //console.log(response);
                     response.forEach(data => {
                         let dat: Data = new Data(data.datetime, data.valueid.slice(data.valueid.lastIndexOf(".") + 1), data.value);
 
@@ -79,7 +85,7 @@ export class DeviceService {
                                 }
                                 break;
                             }
-                            case "Temp1": {
+                            case "28-00000ab161fc": {
                                 dataVal = new DataValue(data.datetime, parseFloat(data.value[0]));
                                 DeviceService.currentDevice.DataSort.Temp1.push(dataVal);
                                 break
@@ -118,7 +124,23 @@ export class DeviceService {
                     console.log(`error ${error}`);
                 }
             }).done(() => {
+                //console.log(DeviceService.currentDevice.DataSort.Temp1);
+
+                let data = [];
                 
+                DeviceService.currentDevice.DataSort.Temp1.forEach(d => {
+                    //moment.unix(d.DateTime).format("dd.mm.yyyy HH:mm:ss")
+                    data.push([new Date(d.DateTime * 1000).toISOString().slice(0, 19).replace('T', ' '), d.Value]);
+                });
+
+                let cs: ChartService = new ChartService();
+                let ch: Chart = new Chart(document.getElementById('regions_div'));
+                ch.headers = ['Second', 'temperature'];
+                ch.chartType = ChartType.LineChart;
+                ch.data = data;
+                //ch.options = {}
+                ch.draw();
+
             });
             //this.buildDataForDeviceFromResponse(DeviceService.currentDevice.Data, DeviceService.currentDevice.DataSort);
         }

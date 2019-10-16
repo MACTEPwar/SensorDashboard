@@ -12,7 +12,7 @@ public static class WebApiConfig
         config.Routes.MapHttpRoute(
             name: "DefaultApi",
             routeTemplate: "api/{controller}/{action}/{str}",
-            defaults: new { str = RouteParameter.Optional }
+            defaults: new { action = "Index", str = RouteParameter.Optional }
         );
 
     }

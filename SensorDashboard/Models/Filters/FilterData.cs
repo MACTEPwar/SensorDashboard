@@ -9,7 +9,5 @@ namespace SensorDashboard.Models.Filters
     {
         public int? DateTimeBegin { get; set; }
         public int? DateTimeFinish { get; set; }
-        public string ValueIdEqulas { get; set; }
-        public string ValueIdContains { get; set; }
     }
 }

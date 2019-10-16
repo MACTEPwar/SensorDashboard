@@ -1,7 +1,5 @@
 import { MapService } from "./Services/MapService.js";
 import { DeviceService } from "./Services/DeviceService.js";
-import { ChartService } from "./Services/ChartService.js";
-import { Chart, ChartType } from "./Models/Chart.js";
 window.onload = function () {
     /** кнопка показать/скрыть список устройств */
     var btnShowHideDeviceList = $("#btnDeviceList");
@@ -19,14 +17,13 @@ window.onload = function () {
         deviceList.toggle();
     });
     /** TEST */
-    var cs = new ChartService();
-    var ch = new Chart(document.getElementById('regions_div'));
-    ch.headers = ['Second', 'Sales', 'Куку'];
-    ch.chartType = ChartType.LineChart;
-    ch.data = [['1570718585', 1000, 400], ['1570718587', 1170, 460], ['1570718586', 660, 1120], ['1570718589', 1030, 540]];
-    //ch.options = {}
-    //console.log("draw");
-    ch.draw();
+    //let cs: ChartService = new ChartService();
+    //let ch: Chart = new Chart(document.getElementById('regions_div'));
+    //ch.headers = ['Second', 'Sales', 'Куку'];
+    //ch.chartType = ChartType.LineChart;
+    //ch.data = [['1570718585', 1000, 400], ['1570718587', 1170, 460], ['1570718586', 660, 1120], ['1570718589', 1030, 540]];
+    ////ch.options = {}
+    //ch.draw();
     /** END TEST */
 };
 /**Инициализирует все datetimepicker-ы с начальными настройками */

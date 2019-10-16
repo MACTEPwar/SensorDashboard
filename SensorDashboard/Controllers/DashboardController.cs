@@ -32,8 +32,10 @@ namespace SensorDashboard.Controllers
 
         public PartialViewResult GetDeviceList()
         {
-            var devices = deviceService.ReadByFilter(new FilterDevice());
-            return PartialView("PartialCarList", devices);
+            //var devices = deviceService.ReadByFilter(new FilterDevice());
+
+            //return PartialView("PartialCarList", devices);
+            return PartialView("PartialCarList");
         }
 
         [HttpGet]
@@ -58,14 +60,20 @@ namespace SensorDashboard.Controllers
             //var res = dataService.ReadByFilter(filter);
             //return Json(res, JsonRequestBehavior.AllowGet);
 
-            var serializer = new JavaScriptSerializer();
-            serializer.MaxJsonLength = Int32.MaxValue;
 
-            var resultData = dataService.ReadByFilter(filter);
+
+
+
+
+
+            //var serializer = new JavaScriptSerializer();
+            //serializer.MaxJsonLength = Int32.MaxValue;
+
+            //var resultData = dataService.ReadByFilter(filter);
             var result = new ContentResult
             {
-                Content = serializer.Serialize(resultData),
-                ContentType = "application/json"
+                //Content = serializer.Serialize(resultData),
+                //ContentType = "application/json"
             };
             return result;
 
@@ -74,8 +82,12 @@ namespace SensorDashboard.Controllers
         [HttpGet]
         public JsonResult Test()
         {
-            var res = dataService.ReadByFilter(new FilterData() { ValueIdContains = "8888" });
-            return Json(res, JsonRequestBehavior.AllowGet);
+            //var res = dataService.ReadByFilter(new FilterData() { ValueIdContains = "8888" });
+            //return Json(res, JsonRequestBehavior.AllowGet);
+
+
+
+            return Json(null);
         }
     }
 }

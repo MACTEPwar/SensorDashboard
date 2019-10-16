@@ -8,10 +8,10 @@
         /// <summary>
         /// Идентификатор
         /// </summary>
-        public int Serial { get; set; }
+        public string serial { get; set; }
         /// <summary>
         /// Название
         /// </summary>
-        public string Title { get; set; }
+        public string title { get; set; }
     }
 }
