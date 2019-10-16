@@ -7,12 +7,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
 namespace SensorDashboard.Controllers.api
 {
     //[System.Web.Http.Route("api/devices")]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class DevicesController : ApiController
     {
         private readonly DeviceService deviceService = null;
@@ -29,6 +31,7 @@ namespace SensorDashboard.Controllers.api
         /// </summary>
         /// <returns>Списко модели, последнй позиции и даты</returns>
         [System.Web.Http.HttpGet]
+        [System.Web.Http.HttpPost]
         [System.Web.Http.Route("api/devices/GetLastPositionFromDevices")]
         public IEnumerable<Data> GetLastPositionFromDevices()
         {
@@ -40,6 +43,7 @@ namespace SensorDashboard.Controllers.api
         /// </summary>
         /// <returns>Список устрйоств</returns>
         [System.Web.Http.HttpGet]
+        [System.Web.Http.HttpPost]
         public IEnumerable<Device> Index()
         {
             return deviceService.GetDeviceList();
@@ -53,6 +57,7 @@ namespace SensorDashboard.Controllers.api
         /// <param name="filter">Фильтр</param>
         /// <returns>Список данных с датчика</returns>
         [System.Web.Http.HttpGet]
+        [System.Web.Http.HttpPost]
         [System.Web.Http.Route("api/devices/GetDataFromSensor/{serial}/{sensor}")]
         public IEnumerable<object> GetDataFromSensor([FromUri]string serial, [FromUri] string sensor, [FromBody]FilterData filter)
         {
@@ -67,6 +72,7 @@ namespace SensorDashboard.Controllers.api
         /// <param name="filter">Фильтр</param>
         /// <returns>Количество данных</returns>
         [System.Web.Http.HttpGet]
+        [System.Web.Http.HttpPost]
         [System.Web.Http.Route("api/devices/GetCountDataFromSensor/{serial}/{sensor}")]
         public int GetCountDataFromSensor([FromUri]string serial, [FromUri] string sensor, [FromBody]FilterData filter)
         {
@@ -80,6 +86,7 @@ namespace SensorDashboard.Controllers.api
         /// <param name="serial">Серийный номер устройства</param>
         /// <param name="datetime">До какого времени искать (если null, то берется до текущего момента)</param>
         [System.Web.Http.HttpGet]
+        [System.Web.Http.HttpPost]
         [System.Web.Http.Route("api/devices/GetLastDataFromSensors/{serial}")]
         public IEnumerable<Data> GetLastDataFromSensors([FromUri] string serial, [FromBody] object datetime)
         {
